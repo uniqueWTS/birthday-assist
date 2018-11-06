@@ -1,0 +1,237 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <meta name="description" content="">
+ <meta name="author" content="">
+ <!-- <link rel="icon" href="../../../../favicon.ico"> -->
+
+ <title>生日助手</title>
+
+ <!-- Bootstrap core CSS -->
+ <link href="../css/bs.min.css" rel="stylesheet">
+
+ <!-- Custom styles for this template -->
+ <link href="../css/sticky-footer-navbar.css" rel="stylesheet">
+</head>
+
+<body>
+
+ <header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+   <a class="navbar-brand" href="#">生日助手</a>
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item active">
+      <a class="nav-link" href="./index.html">主页 <span class="sr-only">(current)</span></a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="./about.html">关于</a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="./contact.html">联系</a>
+     </li>
+    </ul>
+   </div>
+  </nav>
+</header>
+
+ <!-- Begin page content -->
+ <main role="main" class="container">
+  <div class="alert alert-dismissible fade show" role="alert">
+   <strong></strong>
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+   </button>
+  </div>
+  <!-- Begin dropdown -->
+  <div class="dropdown">
+   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #fff; color: #000; border: none;">
+    操作
+   </button>
+   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">显示全部</a>
+    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#newRecordModal">新建</a>
+    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#queryRecordModal">查询</a>
+    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#updateRecordModal">更改</a>
+    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#removeRecordModal">删除</a>
+   </div>
+  </div>
+  <!-- End dropdown -->
+  <!-- Begin Modal -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="newRecordModal" tabindex="-1" role="dialog" aria-labelledby="newRecordModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h5 class="modal-title" id="newRecordTitle">新建记录</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+      </button>
+     </div>
+     <div class="modal-body">
+      <!-- new record form -->
+      <form id="newRecordForm">
+       <div class="form-group">
+        <label for="fullname">姓名:</label>
+        <input type="text" class="form-control" name="fullname" id="fullname" placeholder="请输入姓名" autocomplete required>
+       </div>
+       <div class="form-group">
+        <label for="birthday">生日:</label>
+        <input type="date" class="form-control" name="birthday" id="birthday" placeholder="请输入生日" autocomplete required>
+       </div>
+       <div class="form-group">
+        <label for="selectList">关系：</label>
+        <input id="relation" list="selectList" class="form-control" placeholder="请选择关系">
+        <datalist id="selectList">
+         <option value="家人"></option>
+         <option value="亲戚"></option>
+         <option value="朋友"></option>
+         <option value="同学"></option>
+         <option value="其它"></option>
+        </datalist>
+       </div>
+      </form>
+     </div>
+     <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+      <button type="button" class="btn btn-primary" id="btnNewSave">保存记录</button>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <!-- End Modal -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="queryRecordModal" tabindex="-1" role="dialog" aria-labelledby="queryRecordModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h5 class="modal-title" id="newRecordTitle">查询记录</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+      </button>
+     </div>
+     <div class="modal-body">
+      <!-- query record form -->
+      <form id="queryRecordForm">
+       <div class="form-group">
+        <label for="queryKey">
+         <input id="queryKey" list="queryList" class="form-control" placeholder="请选择查询的类型" name="queryKey">
+         <datalist id="queryList">
+          <option value="name">姓名</option>
+          <option value="生日" disabled="">birthday</option>
+          <option value="关系" disabled="">relation</option>
+          <option value="数据库" disabled="">db</option>
+         </datalist>
+        </label>
+        <input type="text" name="queryValue" id="queryValue" class="form-control" placeholder="请输入查询的项目的值"></div>
+       </form>
+      </div>
+      <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+       <button type="button" class="btn btn-primary" id="btnQuery">查询记录</button>
+      </div>
+     </div>
+    </div>
+   </div>
+  <!-- End Modal -->
+
+ <!-- Modal -->
+  <div class="modal fade" id="updateRecordModal" tabindex="-1" role="dialog" aria-labelledby="updateRecordModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h5 class="modal-title" id="newRecordTitle">修改记录</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+      </button>
+     </div>
+     <div class="modal-body">
+      <!-- query record form -->
+      <form id="updateRecordForm">
+       <div class="form-group">
+          <input type="text" name="nameBeforeUpdate" id="nameBeforeUpdate" class="form-control" placeholder="改前的姓名" required>
+        </div>
+        <div class="form-group">
+           <label for="updateKey">
+         <input id="updateKey" list="updateList" class="form-control" placeholder="请选择修改的类型" name="updateKey">
+         <datalist id="updateList">
+          <option value="name">姓名</option>
+          <option value="birthday">生日</option>
+          <option value="relation">关系</option>
+          <option value="db">数据库</option>
+         </datalist>
+        </label>
+        <input type="text" name="updateValue" id="updateValue" class="form-control" placeholder="需要修改的类型值">
+        </div>
+       </form>
+      </div>
+      <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+       <button type="button" class="btn btn-primary" id="btnUpdate">保存修改</button>
+      </div>
+     </div>
+    </div>
+   </div>
+  <!-- End Modal -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="removeRecordModal" tabindex="-1" role="dialog" aria-labelledby="removeRecordModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h5 class="modal-title" id="newRecordTitle">删除记录</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+      </button>
+     </div>
+     <div class="modal-body">
+      <!-- query record form -->
+      <form id="removeRecordForm">
+       <div class="form-group">
+          <label for="removeValue">删除人的姓名</label>
+          <input type="text" name="removeValue" id="nameBeforeRemove" class="form-control" placeholder="请输入删除的姓名">
+        </div>
+       </form>
+      </div>
+      <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+       <button type="button" class="btn btn-primary" id="btnRemove">确认删除</button>
+      </div>
+     </div>
+    </div>
+   </div>
+  <!-- End Modal -->
+
+   <table class="table" id="showAll">
+    <thead></thead>
+    <tbody></tbody>
+   </table>
+  </main>
+
+  <footer class="footer">
+   <div class="container">
+    <span class="text-muted">生日助手是一个Web应用，用来辅助管理生日信息.</span>
+   </div>
+  </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../js/vendor.popper.min.js"></script>
+    <script src="../js/bs.min.js"></script>
+    <script src="../js/property-handler.js"></script>
+    <script src="../js/table-handler.js"></script>
+   </body>
+   </html>
