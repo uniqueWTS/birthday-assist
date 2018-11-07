@@ -238,21 +238,21 @@ function isFound(key, value) {
 	if (localStorage[value] && typeof localStorage[value] == 'string') {
 		var person = JSON.parse(localStorage[value]);
 		if (person.db == db && person[key] == value) {
-			writeRow(tbody, person);
+			tbody.innerHTML = writeTbody(person);
 			return true;
 		}
 	}
 	return false;
 }
 
-function writeRow(ele, obj) {
-	var html = "<tr>";
-	for(var p in obj){
-		html += "<td>"+ obj[p] +"</td>";
-	}
-	html += "</tr>";
-	ele.innerHTML += html;
-}
+// function writeRow(obj) {
+// 	var html = "<tr>";
+// 	for(var p in obj){
+// 		html += "<td>"+ obj[p] +"</td>";
+// 	}
+// 	html += "</tr>";
+// 	return html;
+// }
 
 /*结束表格操作*/
 })();
