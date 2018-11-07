@@ -1,0 +1,43 @@
+<!-- Modal -->
+  <div class="modal fade" id="newRecordModal" tabindex="-1" role="dialog" aria-labelledby="newRecordModalCenterTitle" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+      <h5 class="modal-title" id="newRecordTitle">新建记录</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+      </button>
+     </div>
+     <div class="modal-body">
+      <!-- new record form -->
+      <form id="newRecordForm">
+       <div class="form-group">
+        <label for="fullname">姓名:</label>
+        <input type="text" class="form-control" name="fullname" id="fullname" placeholder="请输入姓名" autocomplete required>
+       </div>
+       <div class="form-group">
+        <label for="birthday">生日:</label>
+        <input type="date" class="form-control" name="birthday" id="birthday" placeholder="请输入生日" autocomplete required>
+       </div>
+       <div class="form-group">
+        <label for="selectList">关系：</label>
+        <input id="relation" list="selectList" class="form-control" placeholder="请选择关系">
+        <datalist id="selectList">
+         <option value="家人"></option>
+         <option value="亲戚"></option>
+         <option value="朋友"></option>
+         <option value="同学"></option>
+         <option value="其它"></option>
+        </datalist>
+       </div>
+      </form>
+     </div>
+     <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+      <button type="button" class="btn btn-primary" id="btnNewSave">保存记录</button>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <!-- End Modal -->
