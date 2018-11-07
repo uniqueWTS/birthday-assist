@@ -1,20 +1,19 @@
 (function () {
 	/*开始表格操作*/
 	var db = 'birthAssist';
-
-	// Alert
 	var ms_showAlert = 1000;
 
 	$('document').ready(function () {
 		// 弹框隐藏
 		$('.alert').hide();
+		// 文档加载完，直接显示列表
 		showAll();
 	/*
-	1.文档加载完毕，显示全部（人物记录）
-	2.点击新建按钮，新建（人物记录）
-	3.点击查询按钮，查询（人物记录）
-	4.点击更改按钮，更改（人物记录）
-	5.点击删除按钮，删除（人物记录）
+	1.点击显示全部，显示全部（记录）
+	2.点击新建按钮，新建（记录）
+	3.点击查询按钮，查询（记录）
+	4.点击更改按钮，更改（记录）
+	5.点击删除按钮，删除（记录）
 	*/
 	// 1
 	
@@ -64,26 +63,23 @@ function isRemove(oldName){
 			isSuccess = true;
 		}
 	}
-	console.log(isSuccess);
 	return isSuccess;
 }
 
 function updateRecord(){
-	// alert("updateRecord");
 	var isUpdateSuccess = false;
 	var oldName = $('#nameBeforeUpdate').val(),
 	key            = $('#updateKey').val(),
 	value          = $('#updateValue').val(),
-	// console.log(namebefore+key+value);
 	success = isUpdate(oldName, key, value);
 	$('#updateRecordModal').modal('hide');
-	showAll();
 	if (success) {
 			writeAlert("修改成功！", 'alert-success');
 		} else {
 			writeAlert("修改失败", 'alert-error');
 		}
 	showAlertAndHide(ms_showAlert);
+	showAll();
 }
 
 function isUpdate(oldName, key, value){
@@ -245,14 +241,6 @@ function isFound(key, value) {
 	return false;
 }
 
-// function writeRow(obj) {
-// 	var html = "<tr>";
-// 	for(var p in obj){
-// 		html += "<td>"+ obj[p] +"</td>";
-// 	}
-// 	html += "</tr>";
-// 	return html;
-// }
 
 /*结束表格操作*/
 })();
