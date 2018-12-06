@@ -29,7 +29,20 @@ var family = {
 		birthday: "1990-02-04",
 		relation: "家人",
 		db: db
+	},
+	"方桂文": {
+		name: "方桂文",
+		birthday: "1936-09-17",
+		relation: "外公",
+		db: db
 	}
+	/*,
+	"外婆": {
+		name: "外婆",
+		birthday: "1937-02-03",
+		relation: "外婆",
+		db: db
+	}*/
 };
 
 $(document).ready(function () {
