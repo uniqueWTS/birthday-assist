@@ -108,8 +108,11 @@ function showAll() {
 		// console.log(typeof localStorage[item]);
 		var record = localStorage[item];
 		if (typeof record == 'string') {
-			if (record[0] != '{') continue; // only json string
-			var p = JSON.parse(localStorage[item]);
+			if (record[0] != '{') {
+				console.log(record[0]);
+				continue;
+			}
+			var p = JSON.parse(record);
 			// alert(p.db == db)
 			if (p.db == db) {
 				if (typeof thead == 'undefined') {
