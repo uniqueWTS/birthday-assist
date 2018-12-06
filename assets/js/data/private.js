@@ -35,14 +35,13 @@ var family = {
 		birthday: "1936-09-17",
 		relation: "外公",
 		db: db
-	}
-	/*,
-	"外婆": {
-		name: "外婆",
+	},
+	"杨雪香": {
+		name: "杨雪香",
 		birthday: "1937-02-03",
 		relation: "外婆",
 		db: db
-	}*/
+	}
 };
 
 $(document).ready(function () {

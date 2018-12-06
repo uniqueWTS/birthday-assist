@@ -107,11 +107,7 @@ function showAll() {
 	for(var item in localStorage){
 		// console.log(typeof localStorage[item]);
 		var record = localStorage[item];
-		if (typeof record == 'string') {
-			if (record[0] != '{') {
-				console.log(record[0]);
-				continue;
-			}
+		if (typeof record == 'string' && /^\{/.test(record)) {
 			var p = JSON.parse(record);
 			// alert(p.db == db)
 			if (p.db == db) {
