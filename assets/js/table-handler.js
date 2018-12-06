@@ -106,7 +106,9 @@ function showAll() {
 	$('#showAll').find('tbody').html(tbody);　//清空残留表格数据
 	for(var item in localStorage){
 		// console.log(typeof localStorage[item]);
-		if (typeof localStorage[item] == 'string') {
+		var record = localStorage[item];
+		if (typeof record == 'string') {
+			if (record[0] != '{') continue; // only json string
 			var p = JSON.parse(localStorage[item]);
 			// alert(p.db == db)
 			if (p.db == db) {
